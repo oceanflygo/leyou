@@ -17,6 +17,10 @@ zuul:
   retryable: true
   routes:
     item-service: /item/** # 将商品微服务映射到/item/**
+    upload-service:        # 将上传图片映射/upload/**
+      path:  /upload/**
+      serviceId: upload-service
+      strip-prefix: false
 ribbon:
   ConnectTimeout: 250 # 连接超时时间(ms)
   ReadTimeout: 2000 # 通信超时时间(ms)
