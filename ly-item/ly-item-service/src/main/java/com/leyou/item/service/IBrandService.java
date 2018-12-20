@@ -15,4 +15,6 @@ public interface IBrandService {
     PageResult<Brand> queryBrandByPage(Integer page, Integer rows, String sortBy, Boolean desc, String key);
 
     void saveBrand(Brand brand, List<Long> cids);
+
+    void updateBrand(Brand brand, List<Long> cids);
 }

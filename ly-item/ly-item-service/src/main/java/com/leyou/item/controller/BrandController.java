@@ -44,4 +44,11 @@ public class BrandController {
         brandService.saveBrand(brand,cids);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+    @PutMapping
+    public ResponseEntity<Void> updateBrand(Brand brand,@RequestParam("cids") List<Long> cids){
+        //先删除之前的信息
+
+        brandService.updateBrand(brand,cids);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
 }

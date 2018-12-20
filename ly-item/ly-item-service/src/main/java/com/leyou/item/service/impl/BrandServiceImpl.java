@@ -65,4 +65,15 @@ public class BrandServiceImpl implements IBrandService {
             }
         }
     }
+
+    @Override
+    @Transactional
+    public void updateBrand(Brand brand, List<Long> cids) {
+
+        brandMapper.updateByPrimaryKey(brand);
+        //先删除原来的分类关系
+        brandMapper.deleteAllByBrandId(brand.getId());
+        //循环保存品牌与分类的关系
+        cids.forEach(cid ->brandMapper.insertCategoryBrand(cid,brand.getId()));
+    }
 }

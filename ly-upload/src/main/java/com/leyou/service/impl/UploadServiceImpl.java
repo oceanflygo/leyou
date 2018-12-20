@@ -53,7 +53,7 @@ public class UploadServiceImpl implements IuploadService {
             File dest = new File("D:/upload",file.getOriginalFilename());
             //保存文件到本地
             file.transferTo(dest);*/
-            /*保存到本地就不需要了 ，直接上传到fastDFS*/
+            /*保存到本地就不需要了注释掉 ，直接上传到fastDFS*/
             String extension= StringUtils.substringAfterLast(file.getOriginalFilename(),".");
             StorePath storePath = storageClient.uploadFile(file.getInputStream(), file.getSize(), extension, null);
 
